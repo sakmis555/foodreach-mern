@@ -1,0 +1,10 @@
+Lecture - 8:
+
+JWT Tokens Link:  https://supertokens.com/blog/what-is-jwt
+
+Lecture - 11:
+ ContextProvider- to link the nested pages, it connects all the pages and surround them in one space.
+ UseReducer :
+ - Many add to cart buttons on the site but for different spaces.
+ - For every button, there is a need to add eventhandlers( not feasible)
+ - Not using useState instead we wil be using UseReducer
