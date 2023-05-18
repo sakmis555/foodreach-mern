@@ -1,9 +1,9 @@
 const express = require('express')
 const app = express()
-const port = 4000
+const port = 4000 || process.env.PORT;
 const mongoDB = require("./db")
 
-
+const path = require("path");
 app.use((req, res, next) =>{
     res.setHeader("Access-Control-Allow-Origin","http://localhost:3000");
     res.header(
@@ -22,6 +22,13 @@ app.use('/api', require("./Routes/OrderData"));
 app.get('/', (req, res) => {
   res.send('Hello World!--------------')
 })
+
+app.use(express.static(path.join(__dirname, "../build")));
+app.get("*", function(req, res){
+  res.sendFile(path.join(__dirname, "../build/index.html"));
+});
+
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
